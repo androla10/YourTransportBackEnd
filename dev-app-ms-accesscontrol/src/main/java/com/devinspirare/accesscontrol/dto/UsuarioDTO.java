@@ -20,11 +20,12 @@ public class UsuarioDTO extends RespuestaGenerica {
 	private String usuario;
 	private String clave;
 	private String codigo;
-	
+	private Integer idUsuario;
+
 	@JsonSerialize(using = CustomDateSerializer.class)
 	@JsonDeserialize(using = CustomDateDeserializer.class)
 	private Date fechaNacimiento;
-	
+
 	private String celular;
 	private String telefono;
 	private String apellidoPaterno;
@@ -33,6 +34,28 @@ public class UsuarioDTO extends RespuestaGenerica {
 	private String email;
 	private String numeroDocumento;
 	private Integer tipoDocumento;
+	private Integer tipoUsuario;
+
+	public UsuarioDTO(Integer idUsuario, String usuario, String codigo, Date fechaNacimiento, String celular,
+			String telefono, String apellidoPaterno, String apellidoMaterno, String nombreCompleto, String email,
+			String numeroDocumento, Integer tipoDocumento, Integer tipoUsuario) {
+		this.usuario = usuario;
+		this.idUsuario = idUsuario;
+		this.codigo = codigo;
+		this.fechaNacimiento = fechaNacimiento;
+		this.celular = celular;
+		this.telefono = telefono;
+		this.apellidoPaterno = apellidoPaterno;
+		this.apellidoMaterno = apellidoMaterno;
+		this.nombreCompleto = nombreCompleto;
+		this.email = email;
+		this.numeroDocumento = numeroDocumento;
+		this.tipoDocumento = tipoDocumento;
+		this.tipoUsuario = tipoUsuario;
+	}
+
+	public UsuarioDTO() {
+	}
 
 	public String getUsuario() {
 		return usuario;
@@ -128,6 +151,22 @@ public class UsuarioDTO extends RespuestaGenerica {
 
 	public void setNombreCompleto(String nombreCompleto) {
 		this.nombreCompleto = nombreCompleto;
+	}
+
+	public Integer getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(Integer idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+	public Integer getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(Integer tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
 
 }

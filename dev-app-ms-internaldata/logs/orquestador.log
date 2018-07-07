@@ -30,3 +30,4 @@
 2018-01-07 20:58:37.479  INFO LAPTOP-J0VNDCK2 --- [nio-8080-exec-3] c.d.o.w.r.OrquestadorController          : Mensaje Info
 2018-01-08 00:25:14.871  INFO LAPTOP-J0VNDCK2 --- [nio-8080-exec-6] c.d.o.w.r.OrquestadorController          : Mensaje Info
 2018-01-12 21:43:35.174  INFO LAPTOP-J0VNDCK2 --- [nio-8080-exec-5] c.d.o.w.r.OrquestadorController          : Mensaje Info
+2018-07-04 12:11:31.840 ERROR LAPTOP-J0VNDCK2 --- [nio-8082-exec-1] c.d.i.w.r.UserController                 : Ha ocurrido un error : No EntityManager with actual transaction available for current thread - cannot reliably process 'persist' call; nested exception is javax.persistence.TransactionRequiredException: No EntityManager with actual transaction available for current thread - cannot reliably process 'persist' call

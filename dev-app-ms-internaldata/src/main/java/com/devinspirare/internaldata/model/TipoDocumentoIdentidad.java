@@ -10,6 +10,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "TipoDocumentoIdentidad")
 public class TipoDocumentoIdentidad implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "codigo")

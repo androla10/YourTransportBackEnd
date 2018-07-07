@@ -73,6 +73,9 @@ public class Usuario implements Serializable {
 	@Column
 	private String email;
 
+	@Column
+	private Integer tipoUsuario;
+
 	public Usuario() {
 
 	}
@@ -195,6 +198,14 @@ public class Usuario implements Serializable {
 
 	public void setApellidoMaterno(String apellidoMaterno) {
 		this.apellidoMaterno = apellidoMaterno;
+	}
+
+	public Integer getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(Integer tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
 	}
 
 }

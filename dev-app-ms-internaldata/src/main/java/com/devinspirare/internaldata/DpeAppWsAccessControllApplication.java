@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 @SpringBootApplication
 @EnableAutoConfiguration
 @Configuration
-@ComponentScan(basePackages = "com.devinspirare.accesscontrol")
+@ComponentScan(basePackages = "com.devinspirare.internaldata")
 public class DpeAppWsAccessControllApplication {
 
 	public static void main(String[] args) {

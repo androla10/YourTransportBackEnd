@@ -1,5 +1,8 @@
 package com.devinspirare.accesscontrol.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +45,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 		usuarioBean.setNombreCompleto(usuarioDTO.getNombreCompleto());
 		usuarioBean.setApellidoPaterno(usuarioDTO.getApellidoPaterno());
 		usuarioBean.setApellidoMaterno(usuarioDTO.getApellidoMaterno());
+		usuarioBean.setTipoUsuario(usuarioDTO.getIdUsuario());
 		usuarioDAO.crearUsuario(usuarioBean);
 	}
 
@@ -82,6 +86,20 @@ public class UsuarioServiceImpl implements UsuarioService {
 		usuarioDTO.setNumeroDocumento(usuarioBean.getDocumentoIdentidad());
 		usuarioDTO.setTelefono(usuarioBean.getTelefono());
 		usuarioDTO.setTipoDocumento(Integer.valueOf(usuarioBean.getTipoDocumentoIdentidad().getCodigo()));
+		usuarioDTO.setTipoUsuario(usuarioBean.getTipoUsuario());
 		return usuarioDTO;
+	}
+
+	public List<UsuarioDTO> allUsuarios() {
+		final List<UsuarioDTO> listadoUsuarios = new ArrayList<UsuarioDTO>();
+		List<Usuario> listadoUsuario = usuarioDAO.listadoUsuario();
+		listadoUsuario.forEach(h -> {
+			listadoUsuarios.add(new UsuarioDTO(h.getId(), h.getUsuario(), h.getCodigo(), h.getFechaNacimiento(),
+					h.getCelular(), h.getTelefono(), h.getApellidoPaterno(), h.getApellidoMaterno(),
+					h.getNombreCompleto(), h.getEmail(), h.getDocumentoIdentidad(),
+					Integer.valueOf(h.getTipoDocumentoIdentidad().getCodigo()), h.getTipoUsuario()));
+		});
+
+		return listadoUsuarios;
 	}
 }

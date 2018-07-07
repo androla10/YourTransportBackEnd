@@ -1,5 +1,6 @@
 package com.devinspirare.accesscontrol.ws.rest;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -88,5 +89,10 @@ public class UserController {
 			generica.setMessage(Constants.MESSAGE_ERROR_RECOVERY_USUARIO);
 			return generica;
 		}
+	}
+
+	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public List<UsuarioDTO> obtenerListadoUsuario() {
+		return usuarioService.allUsuarios();
 	}
 }

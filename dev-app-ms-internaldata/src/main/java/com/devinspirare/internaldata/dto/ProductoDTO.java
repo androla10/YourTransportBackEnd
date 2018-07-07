@@ -1,0 +1,14 @@
+package com.devinspirare.internaldata.dto;
+
+public class ProductoDTO {
+	private String descripcion;
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+}

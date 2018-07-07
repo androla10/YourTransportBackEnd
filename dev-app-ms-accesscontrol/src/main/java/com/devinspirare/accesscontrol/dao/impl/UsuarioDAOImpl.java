@@ -37,44 +37,9 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	}
 
 	public List<Usuario> listadoUsuario() {
-		Connection con = null;
-		ResultSet rs = null;
-		PreparedStatement pstm = null;
-		List<Usuario> list = new ArrayList<Usuario>();
-		try {
-			con = entityManager.unwrap(java.sql.Connection.class);
-			pstm = con.prepareStatement("SELECT * FROM usuario");
-			rs = pstm.executeQuery();
-			Usuario usuarioBean = null;
-			if (rs.next()) {
-				usuarioBean = new Usuario();
-				usuarioBean.setUsuario(rs.getString("usuario"));
-				usuarioBean.setClave(rs.getString("clave"));
-				usuarioBean.setCodigo(rs.getString("codigo"));
-				usuarioBean.setFlagActivo(rs.getString("flagActivo"));
-				usuarioBean.setFlagEstado(rs.getString("flagEstado"));
-				usuarioBean.setCelular(rs.getString("celular"));
-				usuarioBean.setTelefono(rs.getString("telefono"));
-				list.add(usuarioBean);
-			}
-
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-		} finally {
-			try {
-				if (con != null)
-					con.close();
-				if (rs != null)
-					rs.close();
-				if (pstm != null)
-					pstm.close();
-
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return list;
+		String hql = "from Usuario";
+		TypedQuery<Usuario> query = entityManager.createQuery(hql, Usuario.class);
+		return query.getResultList().size() > 0 ? query.getResultList() : null;
 	}
 
 	/**

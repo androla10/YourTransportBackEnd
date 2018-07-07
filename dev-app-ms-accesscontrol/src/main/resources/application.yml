@@ -1,5 +1,5 @@
 server:
-    port : 8082
+    port : 8083
     context-path: /dpe-app-ms-accesscontrol
 
 ##Configuracion Service Path CXF
